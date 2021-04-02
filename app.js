@@ -1,34 +1,32 @@
 // Full Documentation - https://docs.turbo360.co
-const vertex = require('vertex360')({ site_id: process.env.TURBO_APP_ID })
-const express = require('express')
-
-const app = express() // initialize app
-
-/*  Apps are configured with settings as shown in the conig object below.
-    Options include setting views directory, static assets directory,
-    and database settings. Default config settings can be seen here:
-    https://docs.turbo360.co */
+const vertex = require('vertex360')({site_id:process.env.TURBO_APP_ID, api_key:process.env.TURBO_API_KEY})
+const turbo = require('turbo360')({site_id: process.env.TURBO_APP_ID, api_key:process.env.TURBO_API_KEY})
+const path = require('path')
+const controllers = require('./controllers')
 
 const config = {
-  views: 'views', // Set views directory
-  static: 'public', // Set static assets directory
-  logging: true,
-
-  /*  To use the Turbo 360 CMS, from the terminal run
-      $ turbo extend cms
-      then uncomment line 21 below: */
-
-  // db: vertex.nedb()
+	views:  'views', 	// Set views directory
+	static: 'public', 	// Set static assets directory
+	logging: true,
+	controllers: controllers,
+	db: vertex.nedbConfig((process.env.TURBO_ENV=='dev') ? 'nedb://'+path.join(__dirname, process.env.TMP_DIR) : 'nedb://'+process.env.TMP_DIR)
 }
 
-vertex.configureApp(app, config)
+const app = vertex.app(config) // initialize app with config options
+
+// order matters here:
+app.use(vertex.fetchGlobal(process.env.TURBO_API_KEY, process.env.TURBO_ENV, turbo)) // fetch global config on every route
+app.use(vertex.setContext(process.env)) // set CDN and global object on 'req.context'
 
 // import routes
-const index = require('./routes/index')
-const api = require('./routes/api') // sample API Routes
+const page = require('./routes/page')
+const apps = require('./routes/apps')
+const api = require('./routes/api')
 
 // set routes
-app.use('/', index)
-app.use('/api', api) // sample API Routes
+app.use('/', page)
+app.use('/apps', apps)
+app.use('/api', api)
+
 
 module.exports = app

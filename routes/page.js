@@ -26,7 +26,7 @@ router.get('/posts', (req, res) => {
 	postsCtr.get(req.query)
 	.then(posts => {
 		data['posts'] = posts
-		res.render('home', data) // render home.mustache
+		res.render('home2', data) // render home.mustache
 	})
 	.catch(err => {
 		res.json({

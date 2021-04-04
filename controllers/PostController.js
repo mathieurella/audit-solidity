@@ -53,6 +53,11 @@ class PostController extends Controller {
 			const dateParts = dateString.split(', ')
 			body['dateString'] = (dateParts.length==3) ? dateParts[1]+', '+dateParts[2] : dateString
 
+			// vertex.utils.scrapePreview(body.text, 200)
+			// .then(data => {
+			// 	body['preview'] = data.preview || ''
+			// 	return Post.create(body)
+			// })
 			Post.create(body)
 			.then(post => {
 				payload = post.summary()
@@ -71,6 +76,13 @@ class PostController extends Controller {
 		return new Promise((resolve, reject) => {
 			let payload = null
 
+			// vertex.utils.scrapePreview(params.text, 200)
+			// .then(data => { // this can be null
+			// 	if (data != null)
+			// 		params['preview'] = data.preview || ''
+			//
+			// 	return Post.findByIdAndUpdate(id, params, {new:true})
+			// })
 			Post.findByIdAndUpdate(id, params, {new:true})
 			.then(post => {
 				payload = post.summary()

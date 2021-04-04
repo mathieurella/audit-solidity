@@ -14,11 +14,13 @@ const Document = require('vertex-camo').Document
 const props = {
 	image: {type:String, default:''},
 	title: {type:String, default:'', display:true},
-	preview: {type:String, default:'', trim:true},
-	category: {type:String, default:'', lowercase:true, trim:true},
+	// tagLine: {type:String, default:''},
+	category: {type:String, default:'', trim:true, lowercase:true},
 	text: {type:String, default:'', isHtml:true},
+	// youtubeId: {type:String, default:''},
+	// tags: {type:Array, default:[]},
 	dateString: {type:String, default:''},
-	author: {type:Object, default:{}, immutable:true},
+	preview: {type:String, default:'', immutable:true},
 	slug: {type:String, default:'', immutable:true},
 	type: {type:String, default:'', immutable:true}, // original or link
 	numReplies: {type:Number, default:0, immutable:true},

@@ -308,7 +308,7 @@
 			kernelSize: 4,
 			distinction: .01
 		}, 1);
-		var C = new a.a("SPY ON CRYPTO",
+		var C = new a.a("SPYONCRYPTO",
 		{
 			color: "#FFFFFF",
 			size: P.a.isMobile ? .08 : .1,

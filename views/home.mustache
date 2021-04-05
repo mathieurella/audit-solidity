@@ -1,46 +1,31 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <title>{{global.site_name}}</title>
-    <meta name="description" content="{{global.description}}" />
-    {{>head}}
-</head>
-
-
-    <body>
-        <div class="homepage" id="vertex-container">
-
-            {{>header}}
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-10 mx-auto col-sm-12 middle-section">
-                        {{#posts}}
-                            <div class="row blog-box">
-                                <div class="col-md-6 col-sm-12 blog-img" style="background-image: url('{{{image}}}=s1080');">
-                                    <a href="/post"></a>
-                                </div>
-                                <div class="col-md-6 col-sm-12 position-relative">
-                                    <div class="ml-4 blog-content">
-                                        <a href="/post"><h3>{{title}}</h3></a>
-                                        <p class="font-sm">
-                                            <span style="text-transform:uppercase" class="cat"><i class="far fa-image mr-2"></i>{{category}}</span> - {{dateString}}
-                                        </p>
-                                        <p>{{preview}}</p>
-                                        <a href="/post" class="link-blue">Continue reading <i class="fas fa-chevron-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        {{/posts}}
-
-                        {{>footer}}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Vertex library for enabling site updates from https://www.vertex360.co -->
-        <script type="text/javascript" src="https://cdn.turbo360-dev.com/dist/vertex.min.js"></script>
-        {{>scripts}}
-    </body>
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>SPY ON CRYPTO 4YOU</title>
+		<meta name="description" content="We are Spy On Crypto. We are Legion. We do not forgive, THE CORRUPT FEAR US · THE HONEST SUPPORT US · THE HEROIC JOIN US " />
+		<meta name="keywords" content="crypto, bsc, eth, audit, token" />
+		<meta name="author" content="Spy On Crypto" />
+		<link rel="shortcut icon" href="favicon.ico">
+		<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+	<link href="css/vendors.css" rel="stylesheet"><link href="css/demo5.css" rel="stylesheet"></head>
+	<body>
+		<div class="overlay"></div>
+		<main>
+			<div class="frame">
+				<div class="frame__title-wrap">
+					<h1 class="frame__title">SPY ON CRYPTO 4YOU</h1>
+				</div>
+				<!-- <a class="frame__github" href="https://github.com/Jeremboo/animated-mesh-lines">GitHub</a> -->
+				<div class="frame__links">
+					<a href="">Roadmap (Coming Soon)</a>
+					<a href="/posts">Audited Project</a>
+				</div>
+				<div class="frame__demos">
+					<a href="" class="frame__demo frame__demo--current">Buy SPY ON CRYPTO 4YOU Token (Coming Soon)</a>
+				</div>
+			</div>
+		</main>
+	<script type="text/javascript" src="js/vendors.js"></script><script type="text/javascript" src="js/demo5.js"></script></body>
 </html>
